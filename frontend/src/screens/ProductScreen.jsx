@@ -9,31 +9,22 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 import Rating from '../components/Rating';
-import products from '../products';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const ProductScreen = () => {
+  const [product, setProduct] = useState({});
+  const [mainImage, setMainImage] = useState('');
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
-
-  const [mainImage, setMainImage] = useState(product ? product.images[0] : '');
 
   useEffect(() => {
-    if (product) {
-      setMainImage(product.images[0]);
-    }
-  }, [product]);
-
-  if (!product) {
-    return (
-      <div>
-        <h2>Product not found</h2>
-        <Link className='btn btn-light my-3' to='/'>
-          Go Back
-        </Link>
-      </div>
-    );
-  }
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+      setMainImage(data.images[0]);
+    };
+    fetchProduct();
+  }, [productId]);
 
   return (
     <>
@@ -44,18 +35,19 @@ const ProductScreen = () => {
         <Col md={6}>
           <Image src={mainImage} alt={product.name} fluid />
           <Row className='mt-3'>
-            {product.images.map((image, index) => (
-              <Col key={index} xs={3} md={2}>
-                <Image
-                  src={image}
-                  alt={`${product.name} thumbnail ${index + 1}`}
-                  fluid
-                  onClick={() => setMainImage(image)}
-                  className='thumbnail'
-                  style={{ cursor: 'pointer' }}
-                />
-              </Col>
-            ))}
+            {product.images &&
+              product.images.map((image, index) => (
+                <Col key={index} xs={3} md={2}>
+                  <Image
+                    src={image}
+                    alt={`${product.name} thumbnail ${index + 1}`}
+                    fluid
+                    onClick={() => setMainImage(image)}
+                    className='thumbnail'
+                    style={{ cursor: 'pointer' }}
+                  />
+                </Col>
+              ))}
           </Row>
         </Col>
         <Col md={4}>
