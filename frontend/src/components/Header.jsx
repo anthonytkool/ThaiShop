@@ -13,11 +13,13 @@ const Header = () => {
               <img
                 alt='logo'
                 src={logo}
-                width='30'
-                height='30'
+                width='50'
+                height='45'
                 className='d-inline-block align-top'
               />{' '}
-              <b>ThaiStore</b>
+              <strong style={{ fontSize: '2rem', color: '#f4f4f4a6' }}>
+                Thaimart
+              </strong>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
