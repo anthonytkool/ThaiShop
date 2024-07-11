@@ -1,0 +1,22 @@
+/* Header.css */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  color: #f4f4f4a6 !important; /* Ensure the text color is readable */
+}
+
+.navbar-dark .navbar-nav .dropdown-menu {
+  background-color: #343a40 !important; /* Set a visible background color for the dropdown */
+}
+
+.navbar-dark .navbar-nav .dropdown-item {
+  color: #f4f4f4a6 !important; /* Ensure the dropdown text color is readable */
+}
+
+.navbar-dark .navbar-nav .dropdown-item:hover {
+  background-color: #3498db !important; /* Ensure a visible hover background color for dropdown items */
+}
+
+/* Header.css */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

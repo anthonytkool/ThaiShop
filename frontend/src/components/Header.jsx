@@ -1,12 +1,18 @@
-import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector } from 'react-redux';
 import logo from '../assets/logo.png';
+import '../assets/styles/Header.css';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    console.log('Logout');
+  };
+
   return (
     <header>
       <Navbar bg='primary' data-bs-theme='dark' expand='lg' collapseOnSelect>
@@ -42,12 +48,23 @@ const Header = () => {
                   )}
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/login'>
-                <Nav.Link>
-                  <FaUser size='22px' style={{ marginRight: '0.25em' }} />
-                  <b>Sign In</b>
-                </Nav.Link>
-              </LinkContainer>
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id='username'>
+                  <LinkContainer to='/profile'>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <LinkContainer to='/login'>
+                  <Nav.Link>
+                    <FaUser size='22px' style={{ marginRight: '0.25em' }} />
+                    <b>Sign In</b>
+                  </Nav.Link>
+                </LinkContainer>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

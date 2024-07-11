@@ -136,7 +136,7 @@
 [data-bs-theme='dark'] {
   --bs-body-color: #7b8a8b;
   --bs-body-color-rgb: 123, 138, 139;
-  --bs-body-bg: #7b8a8b;
+  --bs-body-bg: #3498db;
   --bs-body-bg-rgb: 123, 138, 139;
   --bs-emphasis-color: #f4f4f4;
   --bs-emphasis-color-rgb: 244, 244, 244;
@@ -3726,7 +3726,7 @@ fieldset:disabled .btn {
 .dropdown-item:hover,
 .dropdown-item:focus {
   color: var(--bs-dropdown-link-hover-color);
-  background-color: var(--bs-dropdown-link-hover-bg);
+  background-color: var(--bs-red);
 }
 .dropdown-item.active,
 .dropdown-item:active {
