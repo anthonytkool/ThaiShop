@@ -124,6 +124,7 @@ const ProductScreen = () => {
                 <Button
                   className='btn-block'
                   type='button'
+                  style={{ backgroundColor: '#3498DB' }}
                   disabled={product.countInStock === 0}
                   onClick={addToCartHandler}
                 >
