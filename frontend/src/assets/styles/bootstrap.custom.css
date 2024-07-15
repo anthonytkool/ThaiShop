@@ -101,7 +101,7 @@
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-link-color: #3c4c5d;
-  --bs-link-color-rgb: 60, 76, 93;
+  --bs-link-color-rgb: //60, 76, 93 ;
   --bs-link-decoration: underline;
   --bs-link-hover-color: #303d4a;
   --bs-link-hover-color-rgb: 48, 61, 74;
@@ -373,7 +373,7 @@ sup {
 }
 
 a {
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  color: rgba(var(--bs-cyan), var(--bs-link-opacity, 1));
   text-decoration: underline;
 }
 a:hover {
